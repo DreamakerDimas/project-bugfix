@@ -27,13 +27,6 @@ class RegistrationForm extends React.Component {
 
     render() {
         const {handleSubmit, submitting} = this.props;
-        const formInputClasses = {
-            container: styles.inputContainer,
-            input: styles.input,
-            warning: styles.fieldWarning,
-            notValid: styles.notValid,
-            valid: styles.valid
-        }
 
         return (
             <div className={styles.signUpFormContainer}>
@@ -55,14 +48,12 @@ class RegistrationForm extends React.Component {
                     <div className={styles.row}>
                         <Field
                             name='displayName'
-                            classes={formInputClasses}
                             component={FormInput}
                             type='text'
                             label='Display Name'
                         />
                         <Field
                             name='email'
-                            classes={formInputClasses}
                             component={FormInput}
                             type='text'
                             label='Email Address'
@@ -71,14 +62,12 @@ class RegistrationForm extends React.Component {
                     <div className={styles.row}>
                         <Field
                             name='password'
-                            classes={formInputClasses}
                             component={FormInput}
                             type='password'
                             label='Password'
                         />
                         <Field
                             name='confirmPassword'
-                            classes={formInputClasses}
                             component={FormInput}
                             type='password'
                             label='Password confirmation'
@@ -114,22 +103,6 @@ class RegistrationForm extends React.Component {
     }
 }
 
-
-const mapStateToProps = (state) => {
-    return {
-        auth: state.auth,
-        initialValues: {
-            role: CONSTANTS.CUSTOMER
-        }
-    }
-};
-
-const mapDispatchToProps = (dispatch) => (
-    {
-        register: (data) => dispatch(authActionRegister(data)),
-        authClear: () => dispatch(clearAuth())
-    }
-);
 
 export default reduxForm({
     form: 'login',

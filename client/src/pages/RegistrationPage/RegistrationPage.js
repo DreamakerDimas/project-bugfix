@@ -31,7 +31,7 @@ const RegistrationPage = (props) => {
                         We always keep your name and email address private.
                     </h4>
                 </div>
-                <RegistrationForm onClick={handleSubmit}/>
+                <RegistrationForm onSubmit={handleSubmit}/>
             </div>
             <RegistrationText />
         </div>
